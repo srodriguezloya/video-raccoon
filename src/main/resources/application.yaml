@@ -1,3 +1,6 @@
 spring:
   application:
     name: video-raccoon
+
+zoneminder:
+  base-url: http://localhost:8080/zm
