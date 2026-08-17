@@ -22,6 +22,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
+	implementation("org.springframework.boot:spring-boot-starter-websocket")
 	implementation("org.apache.camel.springboot:camel-spring-boot-starter:4.22.0")
 	implementation("org.apache.camel.springboot:camel-http-starter:4.22.0")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
