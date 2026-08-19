@@ -1,9 +1,12 @@
+server:
+  port: 8181
+
 spring:
   application:
     name: video-raccoon
 
 zoneminder:
-  base-url: http://localhost:8080/zm
+  base-url: http://localhost:8180/zm
 
 go2rtc:
   base-url: http://localhost:1984
