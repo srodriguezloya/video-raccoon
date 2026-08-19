@@ -18,13 +18,17 @@ private const val MAX_BINARY_MESSAGE_BUFFER_SIZE = 1_048_576
 @EnableWebSocket
 class WebSocketConfig(
     private val cameraStreamWebSocketHandler: CameraStreamWebSocketHandler,
+    private val clientProperties: ClientProperties,
 ) : WebSocketConfigurer {
 
     override fun registerWebSocketHandlers(registry: WebSocketHandlerRegistry) {
         // Path variables aren't supported by this registry (that's an MVC/
         // @RequestMapping feature) - match with a wildcard and extract the
         // stream name from the URI manually, as CameraStreamWebSocketHandler does.
+        // Same-origin only by default (browser-enforced, unrelated to
+        // CorsConfig's REST CORS mapping) - needs its own allowed-origins.
         registry.addHandler(cameraStreamWebSocketHandler, "/stream/*")
+            .setAllowedOrigins(*clientProperties.allowedOrigins.toTypedArray())
     }
 
     // Bean name "webSocketContainer" is what Spring's WebSocket support looks
