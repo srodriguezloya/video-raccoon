@@ -16,13 +16,14 @@ changes on their side.
 ## Architecture at a glance
 
 ```
- Desktop client   ─┐
-                    ├──►   Middleware   ──►  Vendor adapter (Camel)  ──►  VMS
- Web client        ─┘         │
-                               ├── Control API (REST/JSON): camera metadata,
-                               │   stream requests, events, auth
-                               └── Video stream transport (WebSocket): one canonical
-                                   way to consume live video, any vendor
+ Desktop client  ─┐
+                   ├──►  Middleware
+ Web client       ─┘        │
+                             ├─►  Control API  ──►  Vendor adapter (Camel)  ──►  VMS
+                             │    REST/JSON: camera metadata, events, auth
+                             │
+                             └─►  Video Relay  ──►  go2rtc  ──►  Video source
+                                  WebSocket, canonical           (VMS feed or camera)
 ```
 
 Clients never talk to a VMS directly — for control calls or for video. The middleware
