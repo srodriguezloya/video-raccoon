@@ -15,6 +15,16 @@ into every client that needs it. This project moves that integration work into o
 standalone service instead: add a vendor here once, and every client gets it without any
 changes on their side.
 
+## Deployment scope
+
+Designed for a single on-premises LAN — the VMS, this middleware, and client apps all on
+the same local network, per customer site. Not built for cloud/off-network or multi-tenant
+deployment: there's no client↔middleware authentication yet (see Open decisions), the video
+relay is sized for local-network bandwidth and a modest number of concurrent viewers, and
+cameras/VMS servers are typically only reachable from inside their own network anyway.
+Exposing this over the open internet as-is means an unauthenticated control API and video
+relay — don't do that until auth is designed.
+
 ## Architecture at a glance
 
 ```
