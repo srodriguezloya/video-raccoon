@@ -77,9 +77,10 @@ go2rtc to ingest directly.
 
 ## Client-agnostic by design
 
-The canonical API is a plain network service (REST/JSON control, WebSocket video), so it
-can serve a desktop client today and a web client later without any API redesign —
-client language/stack is irrelevant to the middleware.
+The canonical API is a plain network service (REST/JSON control, WebSocket video), so
+it's not tied to any client language or platform. That's not just a claim — it's been
+proven end-to-end against a small Angular web client, over the exact endpoints a desktop
+client would use. Wiring an actual desktop client to it is the next integration step.
 
 ## Open source by design
 
