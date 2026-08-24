@@ -1,3 +1,5 @@
+<img src=".github/mascot-banner.png" alt="video raccoon — VMS middleware, one canonical API for any video system" width="640">
+
 # Video Raccoon
 
 An early-stage middleware that connects to multiple Video Management Systems (VMS) and
